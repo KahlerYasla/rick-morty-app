@@ -1,0 +1,5 @@
+- Navbar is covering the content fix it
+- Add favorite button to the character card
+- Pagination
+- Make the card clickable and show the character details in a dialog box if it is character card
+- Make the card clickable and show the episode details in a different page if it is episode card
