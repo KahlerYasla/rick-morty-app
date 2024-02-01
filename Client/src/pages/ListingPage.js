@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
+import Card from '../components/Card';
+import { Pagination } from '../components/Pagination';
 
 export class ListingPage extends Component {
-  static displayName = ListingPage.name;
-
-  constructor(props) {
-    super(props);
-    this.state = { currentCount: 0 };
-    this.incrementCounter = this.incrementCounter.bind(this);
-  }
-
-  incrementCounter() {
-    this.setState({
-      currentCount: this.state.currentCount + 1
-    });
-  }
-
   render() {
     return (
-      <div>
-        <h1>Counter</h1>
-
-        <p>This is a simple example of a React component.</p>
-
-        <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
-
-        <button className="btn btn-primary" onClick={this.incrementCounter}>Increment</button>
+      <div className="w-full h-full flex-col">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 p-5 md:p-6">
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={true}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+          <Card isEpisodeNotCharacter={false}>
+          </Card>
+        </div>
+        <Pagination className="w-full h-20 bg-lime-950 fixed bottom-0" />
       </div>
     );
   }
 }
+

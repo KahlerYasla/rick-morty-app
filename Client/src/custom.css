@@ -19,5 +19,12 @@ code {
 }
 
 body {
-  background-color: #101c02;
+  background-color: #080e01;
+}
+
+/* set default font 12px/1.5 Arial, sans-serif */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
 }

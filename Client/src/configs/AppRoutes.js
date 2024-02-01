@@ -1,10 +1,10 @@
 import { ListingPage } from "../pages/ListingPage";
-import { HomePage } from "../pages/HomePage";
+import { LoginRegisterPage } from "../pages/LoginRegisterPage";
 
 const AppRoutes = [
   {
     index: true,
-    element: <HomePage />
+    element: <LoginRegisterPage />
   },
   {
     path: '/listing',
