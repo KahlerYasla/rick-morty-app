@@ -1,0 +1,2 @@
+### Start the project from Presentation Layer it is the main layer of the project rest are class libraries
+### In the Presentation Layer, there are two folders one for the API and the other for the Web Application, React app can be found there
