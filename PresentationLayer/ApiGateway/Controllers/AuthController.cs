@@ -1,5 +1,4 @@
 using BusinessLogicLayer.Abstract;
-using CoreInfrastructureLayer.Helpers;
 using CoreInfrastructureLayer.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,15 +28,21 @@ namespace rick_morty_app.Controllers
             return Ok("You can successfully access the address!");
         }
 
+        [AllowAnonymous]
         [HttpPost("/generate-token")]
         public IActionResult GenerateToken([FromBody] TokenGenerationRequestDto request)
         {
-            if (request.Username == null || request.Email == null) BadRequest("Username and password are required!");
-
             string secretRaw = _configuration.GetSection("TokenOptions").Get<TokenOptions>()!.SecurityKey!;
-            string tokenGenerated = JwtTokenGenerator.GenerateToken(request.Username!, request.Email!, secretRaw);
+            TimeSpan tokenExpiration = TimeSpan.FromDays(_configuration.GetSection("TokenOptions").Get<TokenOptions>()!.AccessTokenExpriation!);
 
-            return Ok(tokenGenerated);
+            string tokenGeneratorResult = _authService.GenerateToken(request.Username, request.Email, secretRaw, tokenExpiration);
+
+            if (tokenGeneratorResult == "Username or email cannot be null!")
+            {
+                return BadRequest(tokenGeneratorResult);
+            }
+
+            return Ok(tokenGeneratorResult);
         }
     }
 }

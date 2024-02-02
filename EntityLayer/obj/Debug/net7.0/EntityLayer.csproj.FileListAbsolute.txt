@@ -1,0 +1,11 @@
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/bin/Debug/net7.0/EntityLayer.deps.json
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/bin/Debug/net7.0/EntityLayer.dll
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/bin/Debug/net7.0/EntityLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.AssemblyInfoInputs.cache
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.AssemblyInfo.cs
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.csproj.CoreCompileInputs.cache
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.dll
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/refint/EntityLayer.dll
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/ref/EntityLayer.dll

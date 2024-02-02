@@ -7,12 +7,13 @@ namespace CoreInfrastructureLayer.Helpers
 {
     public static class JwtTokenGenerator
     {
-        static readonly TimeSpan TokenExpiration = TimeSpan.FromHours(1);
+        static TimeSpan TokenExpiration;
 
-        public static string GenerateToken(string username, string email, string secretRaw)
+        public static string GenerateToken(string username, string email, string secretRaw, TimeSpan tokenExpiration)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(secretRaw);
+            TokenExpiration = tokenExpiration;
 
             var claims = new List<Claim>
             {

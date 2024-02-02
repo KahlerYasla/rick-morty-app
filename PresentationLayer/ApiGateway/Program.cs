@@ -1,11 +1,24 @@
 using System.Text;
+
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using CoreInfrastructureLayer.Configuations;
 using CoreInfrastructureLayer.Models;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(builder =>
+    {
+        builder.RegisterModule(new AutofacBusinessModule());
+        builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>().SingleInstance();
+
+    });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
