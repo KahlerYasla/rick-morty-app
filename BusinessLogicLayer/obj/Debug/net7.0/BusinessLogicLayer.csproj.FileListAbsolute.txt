@@ -1,0 +1,11 @@
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/bin/Debug/net7.0/BusinessLogicLayer.deps.json
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/bin/Debug/net7.0/BusinessLogicLayer.dll
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/bin/Debug/net7.0/BusinessLogicLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.AssemblyInfoInputs.cache
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.AssemblyInfo.cs
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.csproj.CoreCompileInputs.cache
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.dll
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/refint/BusinessLogicLayer.dll
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/BusinessLogicLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/obj/Debug/net7.0/ref/BusinessLogicLayer.dll

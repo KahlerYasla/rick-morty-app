@@ -1,0 +1,12 @@
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/CoreInfrastructureLayer.deps.json
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/CoreInfrastructureLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.csproj.AssemblyReference.cache
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.AssemblyInfoInputs.cache
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.AssemblyInfo.cs
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.csproj.CoreCompileInputs.cache
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/refint/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/ref/CoreInfrastructureLayer.dll
