@@ -5,6 +5,8 @@ namespace BusinessLogicLayer.Conctrete
 {
     public class AuthManager : IAuthService
     {
+
+
         public bool Authenticate(string username, string password)
         {
             throw new NotImplementedException();
