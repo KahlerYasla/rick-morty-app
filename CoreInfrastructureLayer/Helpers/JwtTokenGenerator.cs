@@ -19,12 +19,15 @@ namespace CoreInfrastructureLayer.Helpers
             {
                 new (JwtRegisteredClaimNames.Sub, username!),
                 new (JwtRegisteredClaimNames.Email, email!),
+                new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow + TokenExpiration,
+                Audience = "berkay_aslan",
+                Issuer = "berkay_aslan",
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

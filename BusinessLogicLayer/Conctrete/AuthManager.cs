@@ -1,5 +1,6 @@
 using BusinessLogicLayer.Abstract;
 using BusinessLogicLayer.Abstract.Internals;
+using BusinessLogicLayer.Concrete.Internals;
 using CoreInfrastructureLayer.Helpers;
 using rick_morty_app.EntityLayer.Concrete;
 
@@ -44,6 +45,61 @@ namespace BusinessLogicLayer.Conctrete
             _userService.AddUser(user);
 
             return "User registered successfully!";
+        }
+
+        public string Unregister(string email)
+        {
+            User user = _userService.GetUserByEmail(email).Result;
+
+            _userService.DeleteUserById(user.Id);
+
+            return "User unregistered successfully!";
+        }
+
+        public string UpdatePassword(string email, string newPassword)
+        {
+            User user = _userService.GetUserByEmail(email).Result;
+
+            user.Password = newPassword;
+
+            _userService.UpdateUser(user);
+
+            return "Password updated successfully!";
+        }
+
+        public string UpdateUsername(string email, string newUsername)
+        {
+            User user = _userService.GetUserByEmail(email).Result;
+
+            user.Name = newUsername;
+
+            _userService.UpdateUser(user);
+
+            return "Username updated successfully!";
+        }
+
+        public string UpdateEmail(string email, string newEmail)
+        {
+            User user = _userService.GetUserByEmail(email).Result;
+
+            user.Email = newEmail;
+
+            _userService.UpdateUser(user);
+
+            return "Email updated successfully!";
+        }
+
+        public string UpdateUser(string email, string newUsername, string newEmail, string newPassword)
+        {
+            User user = _userService.GetUserByEmail(email).Result;
+
+            user.Name = newUsername;
+            user.Email = newEmail;
+            user.Password = newPassword;
+
+            _userService.UpdateUser(user);
+
+            return "User updated successfully!";
         }
     }
 }

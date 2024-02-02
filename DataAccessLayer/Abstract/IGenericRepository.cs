@@ -27,6 +27,12 @@ namespace rick_morty_app.DataAccessLayer
         bool Any(Expression<Func<T, bool>> predicate);
         T? FirstOrDefault(Expression<Func<T, bool>> predicate);
         T? SingleOrDefault(Expression<Func<T, bool>> predicate);
+
+        // Save changes
+        void SaveChanges();
+
+        // Dispose
+        void Dispose();
     }
 
 }

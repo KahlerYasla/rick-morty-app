@@ -17,11 +17,6 @@ namespace rick_morty_app.Controllers
             _logger = logger;
         }
 
-        [AllowAnonymous]
-        [HttpGet("ping")]
-        public ActionResult<string> Pong()
-        {
-            return Ok("You can successfully access the address!");
-        }
+
     }
 }

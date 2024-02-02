@@ -30,5 +30,13 @@ namespace CoreInfrastructureLayer.Helpers
                 return null;
             }
         }
+
+        public static string GetUsernameFromToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+
+            return jwtToken.Subject;
+        }
     }
 }

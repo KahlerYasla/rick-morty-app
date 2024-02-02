@@ -23,11 +23,6 @@ namespace rick_morty_app.Controllers
             _characterService = characterService;
         }
 
-        [AllowAnonymous]
-        [HttpGet("ping")]
-        public ActionResult<string> Pong()
-        {
-            return Ok("You can successfully access the address!");
-        }
+
     }
 }

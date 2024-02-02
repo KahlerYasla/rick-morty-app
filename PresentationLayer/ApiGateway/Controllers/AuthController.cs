@@ -22,13 +22,6 @@ namespace rick_morty_app.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("ping")]
-        public ActionResult<string> Pong()
-        {
-            return Ok("You can successfully access the address!");
-        }
-
-        [AllowAnonymous]
         [HttpPost("/generate-token")]
         public IActionResult GenerateToken([FromBody] TokenGenerationRequestDto request)
         {

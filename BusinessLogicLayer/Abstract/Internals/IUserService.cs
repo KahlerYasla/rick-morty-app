@@ -8,6 +8,7 @@ namespace BusinessLogicLayer.Abstract.Internals
         public Task<IEnumerable<User>> GetAllUsers();
         public Task<User> GetUserById(int id);
         public Task<User> GetUserByEmail(string email);
+        public Task<IEnumerable<Character>> GetUserFavouriteCharactersByUserId(int id);
         public Task<User> AddUser(User user);
         public Task<User> UpdateUser(User user);
         public Task<User> DeleteUserById(int id);
