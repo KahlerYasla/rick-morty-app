@@ -10,7 +10,7 @@ namespace rick_morty_app.DataAccessLayer
         void AddRange(IEnumerable<T> entities);
 
         // Read
-        T GetById(int id);
+        T? GetById(int id);
         IEnumerable<T> GetAll();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
 
@@ -25,8 +25,8 @@ namespace rick_morty_app.DataAccessLayer
         // Additional functions
         int Count();
         bool Any(Expression<Func<T, bool>> predicate);
-        T FirstOrDefault(Expression<Func<T, bool>> predicate);
-        T SingleOrDefault(Expression<Func<T, bool>> predicate);
+        T? FirstOrDefault(Expression<Func<T, bool>> predicate);
+        T? SingleOrDefault(Expression<Func<T, bool>> predicate);
     }
 
 }

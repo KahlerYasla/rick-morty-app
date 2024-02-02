@@ -7,7 +7,5 @@ namespace BusinessLogicLayer.Abstract
 {
     public interface ICharacterService
     {
-        public String GenerateToken(string username, string email, string secretRaw);
-
     }
 }

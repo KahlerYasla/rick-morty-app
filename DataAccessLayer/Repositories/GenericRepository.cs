@@ -29,9 +29,9 @@ namespace DataAccessLayer.Repositories
         }
 
         // Read
-        public T GetById(int id)
+        public T? GetById(int id)
         {
-            return _context.Set<T>().Find(id);
+            return _context.Set<T>().Find(id) ?? null;
         }
 
         public IEnumerable<T> GetAll()
@@ -77,12 +77,12 @@ namespace DataAccessLayer.Repositories
             return _context.Set<T>().Any(predicate);
         }
 
-        public T FirstOrDefault(Expression<Func<T, bool>> predicate)
+        public T? FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().FirstOrDefault(predicate);
         }
 
-        public T SingleOrDefault(Expression<Func<T, bool>> predicate)
+        public T? SingleOrDefault(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().SingleOrDefault(predicate);
         }

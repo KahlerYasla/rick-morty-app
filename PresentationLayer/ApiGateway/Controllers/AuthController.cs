@@ -1,29 +1,41 @@
+using BusinessLogicLayer.Abstract;
 using CoreInfrastructureLayer.Helpers;
+using CoreInfrastructureLayer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using rick_morty_app.Dtos.requests;
 
 namespace rick_morty_app.Controllers
 {
-    [Route("api/auth/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IConfiguration Configuration;
+        private ILogger<AuthController> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly IAuthService _authService;
 
-        public AuthController()
+        public AuthController(ILogger<AuthController> logger, IAuthService authService)
         {
-            Configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+            _authService = authService;
+            _logger = logger;
+            _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         }
 
-        [HttpPost("generate-token")]
+        [AllowAnonymous]
+        [HttpGet("ping")]
+        public ActionResult<string> Pong()
+        {
+            return Ok("You can successfully access the address!");
+        }
+
+        [HttpPost("/generate-token")]
         public IActionResult GenerateToken([FromBody] TokenGenerationRequestDto request)
         {
             if (request.Username == null || request.Email == null) BadRequest("Username and password are required!");
 
-            string secret = Configuration["Secret"]!; // Assuming you have IConfiguration injected into the controller
-            string tokenGenerated = JwtTokenGenerator.GenerateToken(request.Username!, request.Email!, secret);
+            string secretRaw = _configuration.GetSection("TokenOptions").Get<TokenOptions>()!.SecurityKey!;
+            string tokenGenerated = JwtTokenGenerator.GenerateToken(request.Username!, request.Email!, secretRaw);
 
             return Ok(tokenGenerated);
         }

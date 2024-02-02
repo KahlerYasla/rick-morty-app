@@ -1,35 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using BusinessLogicLayer.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace rick_morty_app.Controllers
 {
-    [Route("api/episode/[controller]")]
-    public class EpisodeController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EpisodeController : ControllerBase
     {
         private readonly ILogger<EpisodeController> _logger;
+        private readonly IEpisodeService _episodeService;
 
-        public EpisodeController(ILogger<EpisodeController> logger)
+        public EpisodeController(ILogger<EpisodeController> logger, IEpisodeService episodeService)
         {
+            _episodeService = episodeService;
             _logger = logger;
         }
 
-        [HttpGet]
-        [Route("/")]
-        public ActionResult<string> Index()
+        [AllowAnonymous]
+        [HttpGet("ping")]
+        public ActionResult<string> Pong()
         {
-            return "You can successfully access the address!";
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
+            return Ok("You can successfully access the address!");
         }
     }
 }
