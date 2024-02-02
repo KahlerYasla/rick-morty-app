@@ -3,13 +3,7 @@ import { useCallback, useState } from "react";
 function Button2({ content, onClick, active, disabled }) {
     return (
         <button
-            className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] font-normal transition-colors rounded-lg
-      ${active ? "bg-lime-200 text-bg-lime-900" : "text-lime-100"}
-      ${!disabled
-                    ? "bg-lime-900 "
-                    : "text-lime-100 bg-lime-900 cursor-not-allowed"
-                }
-      `}
+            className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 bg-lime-900 rounded-full`}
             onClick={onClick}
             disabled={disabled}
         >

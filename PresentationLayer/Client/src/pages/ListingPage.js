@@ -15,7 +15,7 @@ export class ListingPage extends Component {
           </Card>
           <Card isEpisodeNotCharacter={true}>
           </Card>
-          <Card isEpisodeNotCharacter={true}>
+          <Card isEpisodeNotCharacter={true} isDeletable={true}>
           </Card>
           <Card isEpisodeNotCharacter={true}>
           </Card>
@@ -23,7 +23,7 @@ export class ListingPage extends Component {
           </Card>
           <Card isEpisodeNotCharacter={false}>
           </Card>
-          <Card isEpisodeNotCharacter={false}>
+          <Card isEpisodeNotCharacter={false} isDeletable={true}>
           </Card>
           <Card isEpisodeNotCharacter={false}>
           </Card>
