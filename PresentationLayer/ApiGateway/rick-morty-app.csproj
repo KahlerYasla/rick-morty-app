@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CoreInfrastructureLayer\CoreInfrastructureLayer.csproj" />
     <ProjectReference Include="..\..\BusinessLogicLayer\BusinessLogicLayer.csproj" />
   </ItemGroup>
 

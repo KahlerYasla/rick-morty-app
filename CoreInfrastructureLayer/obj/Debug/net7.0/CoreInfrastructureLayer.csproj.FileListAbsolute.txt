@@ -10,3 +10,8 @@
 /Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/refint/CoreInfrastructureLayer.dll
 /Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.pdb
 /Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/ref/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/DataAccessLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/EntityLayer.dll
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/DataAccessLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/bin/Debug/net7.0/EntityLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/CoreInfrastructureLayer/obj/Debug/net7.0/CoreInfrastructureLayer.csproj.CopyComplete

@@ -372,6 +372,7 @@
       },
       "CoreInfrastructureLayer/1.0.0": {
         "dependencies": {
+          "DataAccessLayer": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.0"
         },
         "runtime": {

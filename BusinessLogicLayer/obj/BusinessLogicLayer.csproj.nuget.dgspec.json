@@ -85,7 +85,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/kahler/Desktop/rick-morty-app/DataAccessLayer/DataAccessLayer.csproj": {
+                "projectPath": "/Users/kahler/Desktop/rick-morty-app/DataAccessLayer/DataAccessLayer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
