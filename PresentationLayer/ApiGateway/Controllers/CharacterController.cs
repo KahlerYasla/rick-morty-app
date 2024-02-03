@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using BusinessLogicLayer.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PresentationLayer.ApiGateway.Dtos.Responses;
 
 namespace rick_morty_app.Controllers
 {
     [Route("api/[controller]")]
+    [AllowAnonymous]
     [ApiController]
     public class CharacterController : ControllerBase
     {
@@ -23,6 +20,12 @@ namespace rick_morty_app.Controllers
             _characterService = characterService;
         }
 
+        [HttpGet("/get-all-characters")]
+        public ActionResult<GetAllCharactersResponseDto> GetAllCharacters()
+        {
+            var characters = _characterService.GetAllCharacters().Result;
 
+            return Ok(characters);
+        }
     }
 }

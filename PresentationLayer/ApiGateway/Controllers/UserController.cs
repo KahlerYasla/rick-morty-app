@@ -23,7 +23,8 @@ namespace rick_morty_app.Controllers
         public ActionResult<Character> GetFavouriteCharacters()
         {
             // get the username from the token
-            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString());
+            // Split for the token type and the token itself ex: Bearer welfklwekfw.wlefkwlekf.weklkfl243oweof
+            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString().Split(" ")[1]);
 
             // get the user id from the database using service
             User user = _userService.GetUserByEmail(username).Result;
@@ -38,7 +39,8 @@ namespace rick_morty_app.Controllers
         public ActionResult<Character> AddFavouriteCharacter([FromBody] Character character)
         {
             // get the username from the token
-            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString());
+            // Split for the token type and the token itself ex: Bearer welfklwekfw.wlefkwlekf.weklkfl243oweof
+            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString().Split(" ")[1]);
 
             // get the user id from the database using service
             User user = _userService.GetUserByEmail(username).Result;
@@ -54,7 +56,8 @@ namespace rick_morty_app.Controllers
         public ActionResult<Character> RemoveFavouriteCharacter([FromBody] Character character)
         {
             // get the username from the token
-            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString());
+            // Split for the token type and the token itself ex: Bearer welfklwekfw.wlefkwlekf.weklkfl243oweof
+            string username = JwtTokenResolver.GetUsernameFromToken(HttpContext.Request.Headers["Authorization"].ToString().Split(" ")[1]);
 
             // get the user id from the database using service
             User user = _userService.GetUserByEmail(username).Result;

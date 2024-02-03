@@ -28,12 +28,12 @@ namespace CoreInfrastructureLayer.Helpers
                 Expires = DateTime.UtcNow + TokenExpiration,
                 Audience = "berkay_aslan",
                 Issuer = "berkay_aslan",
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.Sha256)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token).ToString();
+            return tokenHandler.WriteToken(token);
         }
     }
 }

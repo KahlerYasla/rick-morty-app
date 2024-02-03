@@ -16,8 +16,8 @@ namespace CoreInfrastructureLayer.Helpers
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false
+                ValidateIssuer = true,
+                ValidateAudience = true
             };
 
             try

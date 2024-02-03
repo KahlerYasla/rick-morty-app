@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace rick_morty_app.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     public class TestConnection : Controller
     {
         [AllowAnonymous]

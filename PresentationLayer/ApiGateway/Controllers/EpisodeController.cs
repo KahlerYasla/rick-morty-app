@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace rick_morty_app.Controllers
 {
     [Route("api/[controller]")]
+    [AllowAnonymous]
     [ApiController]
     public class EpisodeController : ControllerBase
     {

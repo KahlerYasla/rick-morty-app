@@ -34,6 +34,7 @@ namespace BusinessLogicLayer.Concrete.Internals
             }
         }
 
+        // Get 
         public Task<IEnumerable<User>> GetAllUsers()
         {
             IEnumerable<User> users = _repository.GetAll();
@@ -63,6 +64,7 @@ namespace BusinessLogicLayer.Concrete.Internals
             return Task.FromResult(characters);
         }
 
+        // Post
         public Task<User> AddUser(User user)
         {
             _repository.Add(user);
@@ -71,6 +73,7 @@ namespace BusinessLogicLayer.Concrete.Internals
             return Task.FromResult(user);
         }
 
+        // Put
         public Task<User> UpdateUser(User user)
         {
             _repository.Update(user);
@@ -79,6 +82,7 @@ namespace BusinessLogicLayer.Concrete.Internals
             return Task.FromResult(user);
         }
 
+        // Delete
         public Task<User> DeleteUserById(int id)
         {
             User user = _repository.GetById(id)!;

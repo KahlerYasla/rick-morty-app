@@ -7,6 +7,7 @@ using rick_morty_app.Dtos.requests;
 namespace rick_morty_app.Controllers
 {
     [Route("api/[controller]")]
+    [AllowAnonymous]
     [ApiController]
     public class AuthController : ControllerBase
     {

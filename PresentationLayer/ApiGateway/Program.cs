@@ -22,7 +22,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+// Add JWT Authentication ----------------------------------------------------------------------------
+var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>()!;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -30,12 +31,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        ValidIssuer = tokenOptions!.Issuer,
+        ValidIssuer = tokenOptions.Issuer,
         ValidAudience = tokenOptions.Audience,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOptions.SecurityKey)),
     };
 });
+
+// Add Authorization ----------------------------------------------------------------------------
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
