@@ -47,59 +47,59 @@ namespace BusinessLogicLayer.Conctrete
             return "User registered successfully!";
         }
 
-        public string Unregister(string email)
-        {
-            User user = _userService.GetUserByEmail(email).Result;
+        // public string Unregister(string email)
+        // {
+        //     User user = _userService.GetUserByEmail(email).Result;
 
-            _userService.DeleteUserById(user.Id);
+        //     _userService.DeleteUserById(user.Id);
 
-            return "User unregistered successfully!";
-        }
+        //     return "User unregistered successfully!";
+        // }
 
-        public string UpdatePassword(string email, string newPassword)
-        {
-            User user = _userService.GetUserByEmail(email).Result;
+        // public string UpdatePassword(string email, string newPassword)
+        // {
+        //     User user = _userService.GetUserByEmail(email).Result;
 
-            user.Password = newPassword;
+        //     user.Password = newPassword;
 
-            _userService.UpdateUser(user);
+        //     _userService.UpdateUser(user);
 
-            return "Password updated successfully!";
-        }
+        //     return "Password updated successfully!";
+        // }
 
-        public string UpdateUsername(string email, string newUsername)
-        {
-            User user = _userService.GetUserByEmail(email).Result;
+        // public string UpdateUsername(string email, string newUsername)
+        // {
+        //     User user = _userService.GetUserByEmail(email).Result;
 
-            user.Name = newUsername;
+        //     user.Name = newUsername;
 
-            _userService.UpdateUser(user);
+        //     _userService.UpdateUser(user);
 
-            return "Username updated successfully!";
-        }
+        //     return "Username updated successfully!";
+        // }
 
-        public string UpdateEmail(string email, string newEmail)
-        {
-            User user = _userService.GetUserByEmail(email).Result;
+        // public string UpdateEmail(string email, string newEmail)
+        // {
+        //     User user = _userService.GetUserByEmail(email).Result;
 
-            user.Email = newEmail;
+        //     user.Email = newEmail;
 
-            _userService.UpdateUser(user);
+        //     _userService.UpdateUser(user);
 
-            return "Email updated successfully!";
-        }
+        //     return "Email updated successfully!";
+        // }
 
-        public string UpdateUser(string email, string newUsername, string newEmail, string newPassword)
-        {
-            User user = _userService.GetUserByEmail(email).Result;
+        // public string UpdateUser(string email, string newUsername, string newEmail, string newPassword)
+        // {
+        //     User user = _userService.GetUserByEmail(email).Result;
 
-            user.Name = newUsername;
-            user.Email = newEmail;
-            user.Password = newPassword;
+        //     user.Name = newUsername;
+        //     user.Email = newEmail;
+        //     user.Password = newPassword;
 
-            _userService.UpdateUser(user);
+        //     _userService.UpdateUser(user);
 
-            return "User updated successfully!";
-        }
+        //     return "User updated successfully!";
+        // }
     }
 }

@@ -9,3 +9,7 @@
 /Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/refint/EntityLayer.dll
 /Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.pdb
 /Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/ref/EntityLayer.dll
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/bin/Debug/net7.0/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/bin/Debug/net7.0/CoreInfrastructureLayer.pdb
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.csproj.AssemblyReference.cache
+/Users/kahler/Desktop/rick-morty-app/EntityLayer/obj/Debug/net7.0/EntityLayer.csproj.CopyComplete

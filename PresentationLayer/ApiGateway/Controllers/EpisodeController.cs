@@ -1,6 +1,7 @@
 using BusinessLogicLayer.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.ApiGateway.Dtos;
 
 namespace rick_morty_app.Controllers
 {
@@ -18,6 +19,13 @@ namespace rick_morty_app.Controllers
             _logger = logger;
         }
 
+        [HttpGet("get-all-episodes")]
+        public ActionResult<GetAllEpisodesRequestDto> GetAllEpisodes()
+        {
+            var episodes = _episodeService.GetAllEpisodes().Result;
+
+            return Ok(episodes);
+        }
 
     }
 }

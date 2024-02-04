@@ -2,7 +2,8 @@ using BusinessLogicLayer.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PresentationLayer.ApiGateway.Dtos.Responses;
+using PresentationLayer.ApiGateway.Dtos;
+using rick_morty_app.DataAccessLayer.Data;
 
 namespace rick_morty_app.Controllers
 {
@@ -20,12 +21,20 @@ namespace rick_morty_app.Controllers
             _characterService = characterService;
         }
 
-        [HttpGet("/get-all-characters")]
-        public ActionResult<GetAllCharactersResponseDto> GetAllCharacters()
+        [HttpGet("get-all-characters")]
+        public ActionResult<GetAllCharactersRequestDto> GetAllCharacters()
         {
             var characters = _characterService.GetAllCharacters().Result;
 
             return Ok(characters);
+        }
+
+        [HttpGet("update-db-from-real-api")]
+        public ActionResult UpdateDbFromRealApi()
+        {
+            FetchDataFromOriginalApi.FetchAndWriteDataAsync().Wait();
+
+            return Ok("Database updated from real API!");
         }
     }
 }

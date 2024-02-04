@@ -1,4 +1,4 @@
-namespace rick_morty_app.Dtos.requests
+namespace rick_morty_app.Dtos
 {
     public class TokenGenerationRequestDto
     {

@@ -15,3 +15,5 @@
 /Users/kahler/Desktop/rick-morty-app/DataAccessLayer/obj/Debug/net7.0/DataAccessLayer.pdb
 /Users/kahler/Desktop/rick-morty-app/DataAccessLayer/obj/Debug/net7.0/DataAccessLayer.genruntimeconfig.cache
 /Users/kahler/Desktop/rick-morty-app/DataAccessLayer/obj/Debug/net7.0/ref/DataAccessLayer.dll
+/Users/kahler/Desktop/rick-morty-app/DataAccessLayer/bin/Debug/net7.0/CoreInfrastructureLayer.dll
+/Users/kahler/Desktop/rick-morty-app/DataAccessLayer/bin/Debug/net7.0/CoreInfrastructureLayer.pdb

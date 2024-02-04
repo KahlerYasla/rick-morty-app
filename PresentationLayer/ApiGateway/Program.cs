@@ -7,6 +7,7 @@ using CoreInfrastructureLayer.Models;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using rick_morty_app.Configurations;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,5 +52,11 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+
+using (var workspacePathResolver = new WorkspacePathResolver())
+{
+    workspacePathResolver.SetDbPath();
+}
 
 app.Run();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+p6h0P6wTZcHncJ7z0+OLwry91aGgMdbQb26kc1NBw42rzIICYzx1azJiaK/n7l0YgTvyIwqCSeHngjhSzrVDA==",
+  "dgSpecHash": "M+7mKgTb8mVrJpsCnP/1DNZMmmHnRJk7zueFITUarNNsFp/awAx/TmjWh6stlXHf1khKExTRblFr72Vjhl56kQ==",
   "success": true,
   "projectFilePath": "/Users/kahler/Desktop/rick-morty-app/BusinessLogicLayer/BusinessLogicLayer.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "/Users/kahler/.nuget/packages/microsoft.identitymodel.protocols/6.15.1/microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
     "/Users/kahler/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.15.1/microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
     "/Users/kahler/.nuget/packages/microsoft.identitymodel.tokens/6.15.1/microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
+    "/Users/kahler/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/kahler/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "/Users/kahler/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
     "/Users/kahler/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

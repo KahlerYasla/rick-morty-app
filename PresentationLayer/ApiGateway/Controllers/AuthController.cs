@@ -2,7 +2,7 @@ using BusinessLogicLayer.Abstract;
 using CoreInfrastructureLayer.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using rick_morty_app.Dtos.requests;
+using rick_morty_app.Dtos;
 
 namespace rick_morty_app.Controllers
 {
@@ -23,7 +23,7 @@ namespace rick_morty_app.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("/generate-token")]
+        [HttpPost("generate-token")]
         public IActionResult GenerateToken([FromBody] TokenGenerationRequestDto request)
         {
             string secretRaw = _configuration.GetSection("TokenOptions").Get<TokenOptions>()!.SecurityKey!;
@@ -37,6 +37,34 @@ namespace rick_morty_app.Controllers
             }
 
             return Ok(tokenGeneratorResult);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] RegisterRequestDto request)
+        {
+            string registerResult = _authService.Register(request.Name, request.Email, request.Password);
+
+            if (registerResult == "Username or email cannot be null!")
+            {
+                return BadRequest(registerResult);
+            }
+
+            return Ok(registerResult);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginRequestDto request)
+        {
+            bool loginResult = _authService.Authenticate(request.Name, request.Password);
+
+            if (!loginResult)
+            {
+                return BadRequest("Username or password is incorrect!");
+            }
+
+            return Ok(loginResult);
         }
     }
 }

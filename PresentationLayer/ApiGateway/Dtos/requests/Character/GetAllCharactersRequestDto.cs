@@ -1,12 +1,12 @@
 using rick_morty_app.EntityLayer.Concrete;
 
-namespace PresentationLayer.ApiGateway.Dtos.Responses
+namespace PresentationLayer.ApiGateway.Dtos
 {
-    public class GetAllCharactersResponseDto
+    public class GetAllCharactersRequestDto
     {
         required public List<Character> Characters { get; set; }
 
-        public GetAllCharactersResponseDto(List<Character> characters)
+        public GetAllCharactersRequestDto(List<Character> characters)
         {
             Characters = characters;
         }

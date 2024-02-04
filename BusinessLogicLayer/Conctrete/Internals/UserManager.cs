@@ -1,6 +1,7 @@
 
 using System.Formats.Asn1;
 using BusinessLogicLayer.Abstract.Internals;
+using DataAccessLayer.Data;
 using DataAccessLayer.Repositories;
 using rick_morty_app.DataAccessLayer;
 using rick_morty_app.EntityLayer.Concrete;
@@ -13,10 +14,12 @@ namespace BusinessLogicLayer.Concrete.Internals
         private static UserManager? _instance;
         private static readonly object _lock = new();
         private readonly IGenericRepository<User> _repository;
+        private readonly IGenericRepository<Character> _characterRepository;
 
         private UserManager()
         {
             _repository = new GenericRepository<User>();
+            _characterRepository = new GenericRepository<Character>();
         }
 
         public static UserManager Instance
@@ -56,14 +59,6 @@ namespace BusinessLogicLayer.Concrete.Internals
             return Task.FromResult(user);
         }
 
-        public Task<IEnumerable<Character>> GetUserFavouriteCharactersByUserId(int id)
-        {
-            User user = _repository.GetById(id)!;
-            IEnumerable<Character> characters = user.FavoriteCharacters;
-
-            return Task.FromResult(characters);
-        }
-
         // Post
         public Task<User> AddUser(User user)
         {
@@ -91,5 +86,40 @@ namespace BusinessLogicLayer.Concrete.Internals
 
             return Task.FromResult(user);
         }
+
+        #region FavoriteCharacters ------------------------------------------------
+        public Task<IEnumerable<Character>> GetUserFavouriteCharactersByUserId(int id)
+        {
+            User user = _repository.GetById(id)!;
+            IEnumerable<Character> characters = user.FavoriteCharacters;
+
+            return Task.FromResult(characters);
+        }
+
+        public Task<User> AddFavouriteCharacterToUser(int userId, string characterName)
+        {
+            User user = _repository.GetById(userId)!;
+
+            Character character = _characterRepository.Find(c => c.Name == characterName).FirstOrDefault()!;
+
+            user.FavoriteCharacters.Add(character);
+            _repository.Update(user);
+            _repository.SaveChanges();
+
+            return Task.FromResult(user);
+        }
+
+        public Task<User> RemoveFavouriteCharacterFromUser(int userId, string characterName)
+        {
+            User user = _repository.GetById(userId)!;
+            Character character = user.FavoriteCharacters.FirstOrDefault(c => c.Name == characterName)!;
+            user.FavoriteCharacters.Remove(character);
+            _repository.Update(user);
+            _repository.SaveChanges();
+
+            return Task.FromResult(user);
+        }
+        #endregion ------------------------------------------------------------------
+
     }
 }

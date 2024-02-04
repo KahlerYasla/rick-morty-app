@@ -4,6 +4,7 @@ using CoreInfrastructureLayer.Helpers;
 using BusinessLogicLayer.Abstract.Internals;
 using BusinessLogicLayer.Concrete.Internals;
 using rick_morty_app.EntityLayer.Concrete;
+using rick_morty_app.Dtos;
 
 namespace rick_morty_app.Controllers
 {
@@ -19,8 +20,8 @@ namespace rick_morty_app.Controllers
             _userService = UserManager.Instance;
         }
 
-        [HttpGet("/get-favourite-characters")]
-        public ActionResult<Character> GetFavouriteCharacters()
+        [HttpGet("get-favourite-characters")]
+        public ActionResult<FavoriteCharacterResponseDto> GetFavouriteCharacters()
         {
             // get the username from the token
             // Split for the token type and the token itself ex: Bearer welfklwekfw.wlefkwlekf.weklkfl243oweof
@@ -35,8 +36,8 @@ namespace rick_morty_app.Controllers
             return Ok(favouriteCharacters);
         }
 
-        [HttpPost("/add-favourite-character")]
-        public ActionResult<Character> AddFavouriteCharacter([FromBody] Character character)
+        [HttpPost("add-favourite-character")]
+        public ActionResult AddFavouriteCharacter([FromBody] FavoriteCharacterRequestDto request)
         {
             // get the username from the token
             // Split for the token type and the token itself ex: Bearer welfklwekfw.wlefkwlekf.weklkfl243oweof
@@ -46,13 +47,12 @@ namespace rick_morty_app.Controllers
             User user = _userService.GetUserByEmail(username).Result;
 
             // add the favourite character
-            user.FavoriteCharacters.Add(character);
-            _userService.UpdateUser(user);
+            _userService.AddFavouriteCharacterToUser(user.Id, request.Name);
 
             return Ok("Character added to favourites!");
         }
 
-        [HttpPost("/remove-favourite-character")]
+        [HttpPost("remove-favourite-character")]
         public ActionResult<Character> RemoveFavouriteCharacter([FromBody] Character character)
         {
             // get the username from the token
@@ -63,8 +63,7 @@ namespace rick_morty_app.Controllers
             User user = _userService.GetUserByEmail(username).Result;
 
             // remove the favourite character
-            user.FavoriteCharacters.Remove(character);
-            _userService.UpdateUser(user);
+            _userService.RemoveFavouriteCharacterFromUser(user.Id, character.Name);
 
             return Ok("Character removed from favourites!");
         }

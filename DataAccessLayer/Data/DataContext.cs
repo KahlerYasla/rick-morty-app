@@ -1,3 +1,4 @@
+using CoreInfrastructureLayer.Helpers;
 using Microsoft.EntityFrameworkCore;
 using rick_morty_app.EntityLayer.Concrete;
 
@@ -5,11 +6,10 @@ namespace DataAccessLayer.Data
 {
     public class DataContext : DbContext
     {
-        public String DbPath { get; private set; }
-
+        private string DbPath { get; set; }
         public DataContext()
         {
-            DbPath = "../rick_morty.db";
+            DbPath = WorkspacePaths.Instance.DbPath!;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite($"Data Source={DbPath}");
