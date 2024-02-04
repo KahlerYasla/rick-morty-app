@@ -25,6 +25,7 @@ namespace rick_morty_app.EntityLayer.Concrete
             set => _characterIds = value.Select(x => x.Split("/").Last()).ToList();
         }
         // Relationships --------------------------------------------------------
+        [JsonPropertyName("characters_in_episode")]
         [Column("characters")]
         public virtual List<Character> Characters { get; set; }
 
