@@ -12,13 +12,13 @@ namespace DataAccessLayer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Episodes",
+                name: "episode",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     EpisodeName = table.Column<string>(type: "TEXT", nullable: false),
-                    AirDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    AirDate = table.Column<string>(type: "TEXT", nullable: false),
                     EpisodeCode = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
@@ -27,11 +27,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Episodes", x => x.Id);
+                    table.PrimaryKey("PK_episode", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "user",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -46,11 +46,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_user", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Characters",
+                name: "character",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -69,11 +69,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Characters", x => x.Id);
+                    table.PrimaryKey("PK_character", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Characters_Users_UserId",
+                        name: "FK_character_user_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "user",
                         principalColumn: "Id");
                 });
 
@@ -88,28 +88,28 @@ namespace DataAccessLayer.Migrations
                 {
                     table.PrimaryKey("PK_CharacterEpisode", x => new { x.CharactersId, x.EpisodesId });
                     table.ForeignKey(
-                        name: "FK_CharacterEpisode_Characters_CharactersId",
+                        name: "FK_CharacterEpisode_character_CharactersId",
                         column: x => x.CharactersId,
-                        principalTable: "Characters",
+                        principalTable: "character",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CharacterEpisode_Episodes_EpisodesId",
+                        name: "FK_CharacterEpisode_episode_EpisodesId",
                         column: x => x.EpisodesId,
-                        principalTable: "Episodes",
+                        principalTable: "episode",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_character_UserId",
+                table: "character",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CharacterEpisode_EpisodesId",
                 table: "CharacterEpisode",
                 column: "EpisodesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Characters_UserId",
-                table: "Characters",
-                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -119,13 +119,13 @@ namespace DataAccessLayer.Migrations
                 name: "CharacterEpisode");
 
             migrationBuilder.DropTable(
-                name: "Characters");
+                name: "character");
 
             migrationBuilder.DropTable(
-                name: "Episodes");
+                name: "episode");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "user");
         }
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240203163510_InitialMigration")]
+    [Migration("20240204205456_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -52,27 +52,33 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("Gender")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "gender");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "image");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.Property<string>("Species")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "species");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "status");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "type");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
@@ -84,7 +90,9 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Characters");
+                    b.ToTable("character");
+
+                    b.HasAnnotation("Relational:JsonPropertyName", "favorite_characters");
                 });
 
             modelBuilder.Entity("rick_morty_app.EntityLayer.Concrete.Episode", b =>
@@ -93,8 +101,10 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("AirDate")
-                        .HasColumnType("TEXT");
+                    b.Property<string>("AirDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "air_date");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
@@ -107,18 +117,20 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("EpisodeCode")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "episode");
 
                     b.Property<string>("EpisodeName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Episodes");
+                    b.ToTable("episode");
                 });
 
             modelBuilder.Entity("rick_morty_app.EntityLayer.Concrete.User", b =>
@@ -138,22 +150,25 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "email");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "password");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("user");
                 });
 
             modelBuilder.Entity("CharacterEpisode", b =>
