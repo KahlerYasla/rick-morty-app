@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace rick_morty_app.EntityLayer.Concrete
 {
-    [Table("user")]
     public class User : BaseEntity
     {
         [JsonPropertyName("name")]

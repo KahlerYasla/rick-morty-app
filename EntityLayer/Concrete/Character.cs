@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace rick_morty_app.EntityLayer.Concrete
 {
-    [Table("character")]
     public class Character : BaseEntity
     {
         [JsonPropertyName("name")]
@@ -25,7 +24,6 @@ namespace rick_morty_app.EntityLayer.Concrete
 
         [NotMapped]
         [JsonPropertyName("episode")]
-        [Column("episode_ids")]
         public List<string> EpisodeIds
         {
             get => _episodeIds;

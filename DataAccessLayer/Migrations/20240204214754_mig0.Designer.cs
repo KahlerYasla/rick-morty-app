@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240204210542_Migrations0")]
-    partial class Migrations0
+    [Migration("20240204214754_mig0")]
+    partial class mig0
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,7 +90,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("character");
+                    b.ToTable("Characters");
 
                     b.HasAnnotation("Relational:JsonPropertyName", "favorite_characters");
                 });
@@ -130,7 +130,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("episode");
+                    b.ToTable("Episodes");
                 });
 
             modelBuilder.Entity("rick_morty_app.EntityLayer.Concrete.User", b =>
@@ -168,7 +168,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CharacterEpisode", b =>

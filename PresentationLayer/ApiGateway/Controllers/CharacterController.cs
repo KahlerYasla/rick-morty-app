@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PresentationLayer.ApiGateway.Dtos;
 using rick_morty_app.DataAccessLayer.Data;
+using rick_morty_app.EntityLayer.Concrete;
 
 namespace rick_morty_app.Controllers
 {
@@ -22,9 +23,13 @@ namespace rick_morty_app.Controllers
         }
 
         [HttpGet("get-all-characters")]
-        public ActionResult<GetAllCharactersRequestDto> GetAllCharacters()
+        public ActionResult<GetAllCharactersResponsetDto> GetAllCharacters()
         {
             var characters = _characterService.GetAllCharacters().Result;
+
+            List<Character> charactersL = _characterService.GetAllCharacters().Result.ToList();
+
+            Console.WriteLine(charactersL[0].Episodes[0].EpisodeName);
 
             return Ok(characters);
         }

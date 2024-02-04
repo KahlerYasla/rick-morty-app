@@ -20,7 +20,7 @@ namespace rick_morty_app.Controllers
         }
 
         [HttpGet("get-all-episodes")]
-        public ActionResult<GetAllEpisodesRequestDto> GetAllEpisodes()
+        public ActionResult<GetAllEpisodesResponseDto> GetAllEpisodes()
         {
             var episodes = _episodeService.GetAllEpisodes().Result;
 

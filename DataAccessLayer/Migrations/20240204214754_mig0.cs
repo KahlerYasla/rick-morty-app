@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class Migrations0 : Migration
+    public partial class mig0 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "episode",
+                name: "Episodes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -27,11 +27,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_episode", x => x.Id);
+                    table.PrimaryKey("PK_Episodes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "user",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -46,11 +46,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_user", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "character",
+                name: "Characters",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -69,11 +69,11 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_character", x => x.Id);
+                    table.PrimaryKey("PK_Characters", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_character_user_UserId",
+                        name: "FK_Characters_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "user",
+                        principalTable: "Users",
                         principalColumn: "Id");
                 });
 
@@ -88,28 +88,28 @@ namespace DataAccessLayer.Migrations
                 {
                     table.PrimaryKey("PK_CharacterEpisode", x => new { x.CharactersId, x.EpisodesId });
                     table.ForeignKey(
-                        name: "FK_CharacterEpisode_character_CharactersId",
+                        name: "FK_CharacterEpisode_Characters_CharactersId",
                         column: x => x.CharactersId,
-                        principalTable: "character",
+                        principalTable: "Characters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CharacterEpisode_episode_EpisodesId",
+                        name: "FK_CharacterEpisode_Episodes_EpisodesId",
                         column: x => x.EpisodesId,
-                        principalTable: "episode",
+                        principalTable: "Episodes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_character_UserId",
-                table: "character",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CharacterEpisode_EpisodesId",
                 table: "CharacterEpisode",
                 column: "EpisodesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Characters_UserId",
+                table: "Characters",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -119,13 +119,13 @@ namespace DataAccessLayer.Migrations
                 name: "CharacterEpisode");
 
             migrationBuilder.DropTable(
-                name: "character");
+                name: "Characters");
 
             migrationBuilder.DropTable(
-                name: "episode");
+                name: "Episodes");
 
             migrationBuilder.DropTable(
-                name: "user");
+                name: "Users");
         }
     }
 }

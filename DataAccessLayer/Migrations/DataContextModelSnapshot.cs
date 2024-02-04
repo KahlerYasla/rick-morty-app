@@ -87,7 +87,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("character");
+                    b.ToTable("Characters");
 
                     b.HasAnnotation("Relational:JsonPropertyName", "favorite_characters");
                 });
@@ -127,7 +127,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("episode");
+                    b.ToTable("Episodes");
                 });
 
             modelBuilder.Entity("rick_morty_app.EntityLayer.Concrete.User", b =>
@@ -165,7 +165,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CharacterEpisode", b =>

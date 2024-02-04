@@ -21,7 +21,10 @@ namespace DataAccessLayer.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Maybe I can add some configurations here but now I don't need it.
+            // modelBuilder.Entity<Character>()
+            //     .HasMany(c => c.Episodes)
+            //     .WithMany(e => e.Characters)
+            //     .UsingEntity(j => j.ToTable("CharacterEpisode"));
         }
     }
 }
